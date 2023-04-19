@@ -12,7 +12,7 @@ class ShipController extends Controller
      */
     public function index()
     {
-        return null;
+        return Ship::all();
     }
 
     /**
