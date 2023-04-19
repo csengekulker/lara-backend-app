@@ -12,7 +12,7 @@ class ShipController extends Controller
      */
     public function index()
     {
-        //
+        return null;
     }
 
     /**
@@ -20,7 +20,7 @@ class ShipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Ship::create($request->all());
     }
 
     /**
@@ -34,16 +34,19 @@ class ShipController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Ship $ship)
+    public function update(Request $request, int $id)
     {
-        //
+        $ship = Ship::find($id);
+        $ship->update($request->all());
+
+        return $ship;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Ship $ship)
+    public function destroy(int $id)
     {
-        //
+        Ship::destroy($id);
     }
 }
